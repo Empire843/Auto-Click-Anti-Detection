@@ -1,0 +1,1541 @@
+{
+  "name": "Untitled",
+  "created_at": "2026-05-09 01:20:37",
+  "screen_width": 1920,
+  "screen_height": 1080,
+  "duration": 3.8838,
+  "total_events": 153,
+  "total_clicks": 6,
+  "events": [
+    {
+      "timestamp": 0.0899,
+      "event_type": "click",
+      "x": -1498,
+      "y": 289,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.1478,
+      "event_type": "move",
+      "x": -1498,
+      "y": 289,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.156,
+      "event_type": "move",
+      "x": -1487,
+      "y": 289,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.1643,
+      "event_type": "move",
+      "x": -1463,
+      "y": 294,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.1735,
+      "event_type": "move",
+      "x": -1421,
+      "y": 303,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.1815,
+      "event_type": "move",
+      "x": -1383,
+      "y": 311,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.1902,
+      "event_type": "move",
+      "x": -1344,
+      "y": 318,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.1998,
+      "event_type": "move",
+      "x": -1285,
+      "y": 328,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2089,
+      "event_type": "move",
+      "x": -1226,
+      "y": 339,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2171,
+      "event_type": "move",
+      "x": -1174,
+      "y": 349,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.226,
+      "event_type": "move",
+      "x": -1118,
+      "y": 360,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2342,
+      "event_type": "move",
+      "x": -1068,
+      "y": 370,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.243,
+      "event_type": "move",
+      "x": -1012,
+      "y": 383,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2511,
+      "event_type": "move",
+      "x": -962,
+      "y": 394,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2604,
+      "event_type": "move",
+      "x": -908,
+      "y": 409,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2687,
+      "event_type": "move",
+      "x": -870,
+      "y": 419,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2783,
+      "event_type": "move",
+      "x": -830,
+      "y": 433,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2873,
+      "event_type": "move",
+      "x": -795,
+      "y": 445,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.2958,
+      "event_type": "move",
+      "x": -763,
+      "y": 457,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3053,
+      "event_type": "move",
+      "x": -733,
+      "y": 470,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3138,
+      "event_type": "move",
+      "x": -706,
+      "y": 482,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3223,
+      "event_type": "move",
+      "x": -685,
+      "y": 493,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3309,
+      "event_type": "move",
+      "x": -659,
+      "y": 506,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.339,
+      "event_type": "move",
+      "x": -636,
+      "y": 518,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3473,
+      "event_type": "move",
+      "x": -611,
+      "y": 530,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3561,
+      "event_type": "move",
+      "x": -583,
+      "y": 544,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3642,
+      "event_type": "move",
+      "x": -556,
+      "y": 558,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3723,
+      "event_type": "move",
+      "x": -526,
+      "y": 572,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3811,
+      "event_type": "move",
+      "x": -498,
+      "y": 583,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.3898,
+      "event_type": "move",
+      "x": -471,
+      "y": 595,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.398,
+      "event_type": "move",
+      "x": -451,
+      "y": 604,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.4064,
+      "event_type": "move",
+      "x": -434,
+      "y": 612,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.4152,
+      "event_type": "move",
+      "x": -419,
+      "y": 618,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.4233,
+      "event_type": "move",
+      "x": -409,
+      "y": 623,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.4314,
+      "event_type": "move",
+      "x": -403,
+      "y": 625,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.5443,
+      "event_type": "click",
+      "x": -402,
+      "y": 626,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.6477,
+      "event_type": "click",
+      "x": -402,
+      "y": 626,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.7523,
+      "event_type": "move",
+      "x": -402,
+      "y": 626,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.7605,
+      "event_type": "move",
+      "x": -400,
+      "y": 617,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.7691,
+      "event_type": "move",
+      "x": -394,
+      "y": 592,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.778,
+      "event_type": "move",
+      "x": -390,
+      "y": 572,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.7869,
+      "event_type": "move",
+      "x": -386,
+      "y": 557,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.7951,
+      "event_type": "move",
+      "x": -384,
+      "y": 544,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.8033,
+      "event_type": "move",
+      "x": -380,
+      "y": 528,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.8119,
+      "event_type": "move",
+      "x": -378,
+      "y": 508,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.8205,
+      "event_type": "move",
+      "x": -378,
+      "y": 490,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.8293,
+      "event_type": "move",
+      "x": -378,
+      "y": 479,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.8383,
+      "event_type": "move",
+      "x": -378,
+      "y": 467,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.8464,
+      "event_type": "move",
+      "x": -378,
+      "y": 460,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.8549,
+      "event_type": "move",
+      "x": -378,
+      "y": 453,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.863,
+      "event_type": "move",
+      "x": -378,
+      "y": 449,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.89,
+      "event_type": "move",
+      "x": -378,
+      "y": 447,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.9632,
+      "event_type": "click",
+      "x": -378,
+      "y": 447,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.0865,
+      "event_type": "click",
+      "x": -378,
+      "y": 447,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.1883,
+      "event_type": "move",
+      "x": -378,
+      "y": 447,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.197,
+      "event_type": "move",
+      "x": -378,
+      "y": 458,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2053,
+      "event_type": "move",
+      "x": -381,
+      "y": 480,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2139,
+      "event_type": "move",
+      "x": -382,
+      "y": 506,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2223,
+      "event_type": "move",
+      "x": -383,
+      "y": 535,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2309,
+      "event_type": "move",
+      "x": -383,
+      "y": 569,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2398,
+      "event_type": "move",
+      "x": -383,
+      "y": 605,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2483,
+      "event_type": "move",
+      "x": -383,
+      "y": 638,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2571,
+      "event_type": "move",
+      "x": -383,
+      "y": 673,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2658,
+      "event_type": "move",
+      "x": -382,
+      "y": 704,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.275,
+      "event_type": "move",
+      "x": -377,
+      "y": 731,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2844,
+      "event_type": "move",
+      "x": -374,
+      "y": 753,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.2925,
+      "event_type": "move",
+      "x": -371,
+      "y": 767,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.301,
+      "event_type": "move",
+      "x": -370,
+      "y": 776,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.3119,
+      "event_type": "move",
+      "x": -369,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.4162,
+      "event_type": "click",
+      "x": -369,
+      "y": 782,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.4997,
+      "event_type": "click",
+      "x": -369,
+      "y": 782,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.5119,
+      "event_type": "move",
+      "x": -368,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9177,
+      "event_type": "move",
+      "x": -368,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9263,
+      "event_type": "move",
+      "x": -371,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9351,
+      "event_type": "move",
+      "x": -386,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9442,
+      "event_type": "move",
+      "x": -405,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9534,
+      "event_type": "move",
+      "x": -429,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9621,
+      "event_type": "move",
+      "x": -455,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9709,
+      "event_type": "move",
+      "x": -481,
+      "y": 782,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9793,
+      "event_type": "move",
+      "x": -505,
+      "y": 780,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9879,
+      "event_type": "move",
+      "x": -529,
+      "y": 778,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.9959,
+      "event_type": "move",
+      "x": -550,
+      "y": 776,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.0053,
+      "event_type": "move",
+      "x": -570,
+      "y": 775,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.0148,
+      "event_type": "move",
+      "x": -584,
+      "y": 774,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.0232,
+      "event_type": "move",
+      "x": -591,
+      "y": 774,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.1424,
+      "event_type": "click",
+      "x": -593,
+      "y": 774,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.2596,
+      "event_type": "click",
+      "x": -593,
+      "y": 774,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.4477,
+      "event_type": "move",
+      "x": -593,
+      "y": 774,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.4562,
+      "event_type": "move",
+      "x": -594,
+      "y": 778,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.4642,
+      "event_type": "move",
+      "x": -596,
+      "y": 780,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.4776,
+      "event_type": "move",
+      "x": -596,
+      "y": 783,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.4862,
+      "event_type": "move",
+      "x": -597,
+      "y": 784,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.4982,
+      "event_type": "move",
+      "x": -598,
+      "y": 787,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.5074,
+      "event_type": "move",
+      "x": -599,
+      "y": 787,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.5188,
+      "event_type": "move",
+      "x": -599,
+      "y": 788,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.5665,
+      "event_type": "move",
+      "x": -600,
+      "y": 788,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.5748,
+      "event_type": "move",
+      "x": -601,
+      "y": 790,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.5832,
+      "event_type": "move",
+      "x": -604,
+      "y": 791,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.5914,
+      "event_type": "move",
+      "x": -606,
+      "y": 793,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.5994,
+      "event_type": "move",
+      "x": -608,
+      "y": 794,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.611,
+      "event_type": "move",
+      "x": -611,
+      "y": 796,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6198,
+      "event_type": "move",
+      "x": -615,
+      "y": 797,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6282,
+      "event_type": "move",
+      "x": -619,
+      "y": 799,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.637,
+      "event_type": "move",
+      "x": -625,
+      "y": 800,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6452,
+      "event_type": "move",
+      "x": -630,
+      "y": 801,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6547,
+      "event_type": "move",
+      "x": -638,
+      "y": 802,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6631,
+      "event_type": "move",
+      "x": -645,
+      "y": 802,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6733,
+      "event_type": "move",
+      "x": -654,
+      "y": 802,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6822,
+      "event_type": "move",
+      "x": -663,
+      "y": 802,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6911,
+      "event_type": "move",
+      "x": -672,
+      "y": 801,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.6995,
+      "event_type": "move",
+      "x": -682,
+      "y": 800,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.7087,
+      "event_type": "move",
+      "x": -691,
+      "y": 799,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.7171,
+      "event_type": "move",
+      "x": -696,
+      "y": 799,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.7256,
+      "event_type": "move",
+      "x": -702,
+      "y": 798,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.7399,
+      "event_type": "move",
+      "x": -703,
+      "y": 798,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.8303,
+      "event_type": "click",
+      "x": -703,
+      "y": 798,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 2.9401,
+      "event_type": "click",
+      "x": -703,
+      "y": 798,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.2524,
+      "event_type": "click",
+      "x": -703,
+      "y": 798,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.3333,
+      "event_type": "click",
+      "x": -703,
+      "y": 798,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.397,
+      "event_type": "move",
+      "x": -703,
+      "y": 798,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4053,
+      "event_type": "move",
+      "x": -703,
+      "y": 801,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4152,
+      "event_type": "move",
+      "x": -699,
+      "y": 818,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4252,
+      "event_type": "move",
+      "x": -692,
+      "y": 836,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4339,
+      "event_type": "move",
+      "x": -686,
+      "y": 851,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4425,
+      "event_type": "move",
+      "x": -678,
+      "y": 866,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.451,
+      "event_type": "move",
+      "x": -673,
+      "y": 882,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4603,
+      "event_type": "move",
+      "x": -665,
+      "y": 897,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4687,
+      "event_type": "move",
+      "x": -659,
+      "y": 913,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4769,
+      "event_type": "move",
+      "x": -654,
+      "y": 928,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4851,
+      "event_type": "move",
+      "x": -649,
+      "y": 940,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.4943,
+      "event_type": "move",
+      "x": -646,
+      "y": 951,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.503,
+      "event_type": "move",
+      "x": -643,
+      "y": 960,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.512,
+      "event_type": "move",
+      "x": -640,
+      "y": 968,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.5208,
+      "event_type": "move",
+      "x": -639,
+      "y": 974,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.529,
+      "event_type": "move",
+      "x": -638,
+      "y": 978,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.5372,
+      "event_type": "move",
+      "x": -637,
+      "y": 981,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.5474,
+      "event_type": "move",
+      "x": -636,
+      "y": 982,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.5679,
+      "event_type": "move",
+      "x": -636,
+      "y": 983,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.7622,
+      "event_type": "move",
+      "x": -636,
+      "y": 983,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.771,
+      "event_type": "move",
+      "x": -634,
+      "y": 979,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.7793,
+      "event_type": "move",
+      "x": -632,
+      "y": 974,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.7879,
+      "event_type": "move",
+      "x": -628,
+      "y": 968,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.797,
+      "event_type": "move",
+      "x": -624,
+      "y": 960,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.806,
+      "event_type": "move",
+      "x": -621,
+      "y": 953,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.815,
+      "event_type": "move",
+      "x": -618,
+      "y": 945,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.823,
+      "event_type": "move",
+      "x": -616,
+      "y": 936,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.8311,
+      "event_type": "move",
+      "x": -616,
+      "y": 928,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.8408,
+      "event_type": "move",
+      "x": -614,
+      "y": 919,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.8498,
+      "event_type": "move",
+      "x": -614,
+      "y": 912,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.8579,
+      "event_type": "move",
+      "x": -613,
+      "y": 907,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.8662,
+      "event_type": "move",
+      "x": -612,
+      "y": 901,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.8748,
+      "event_type": "move",
+      "x": -611,
+      "y": 895,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 3.8838,
+      "event_type": "move",
+      "x": -610,
+      "y": 892,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    }
+  ]
+}

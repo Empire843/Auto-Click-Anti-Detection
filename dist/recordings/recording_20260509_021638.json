@@ -1,0 +1,161 @@
+{
+  "name": "Untitled",
+  "created_at": "2026-05-09 02:16:32",
+  "screen_width": 1920,
+  "screen_height": 1080,
+  "duration": 1.8963,
+  "total_events": 15,
+  "total_clicks": 2,
+  "events": [
+    {
+      "timestamp": 0.6596,
+      "event_type": "click",
+      "x": 832,
+      "y": 441,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 0.7569,
+      "event_type": "click",
+      "x": 832,
+      "y": 441,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.038,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": -1
+    },
+    {
+      "timestamp": 1.0614,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": -1
+    },
+    {
+      "timestamp": 1.0795,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": -1
+    },
+    {
+      "timestamp": 1.0946,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": -1
+    },
+    {
+      "timestamp": 1.1117,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": -1
+    },
+    {
+      "timestamp": 1.1387,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": -1
+    },
+    {
+      "timestamp": 1.3594,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 1
+    },
+    {
+      "timestamp": 1.3737,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 1
+    },
+    {
+      "timestamp": 1.3879,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 1
+    },
+    {
+      "timestamp": 1.4059,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 1
+    },
+    {
+      "timestamp": 1.4354,
+      "event_type": "scroll",
+      "x": 832,
+      "y": 441,
+      "button": "none",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 1
+    },
+    {
+      "timestamp": 1.7789,
+      "event_type": "click",
+      "x": 832,
+      "y": 441,
+      "button": "left",
+      "pressed": true,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    },
+    {
+      "timestamp": 1.8963,
+      "event_type": "click",
+      "x": 832,
+      "y": 441,
+      "button": "left",
+      "pressed": false,
+      "scroll_dx": 0,
+      "scroll_dy": 0
+    }
+  ]
+}
