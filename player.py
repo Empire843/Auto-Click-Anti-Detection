@@ -1,6 +1,6 @@
 """
-Mouse Player Module - Phiên bản Anti-Detection.
-Phát lại sự kiện chuột với humanization để tránh bị phát hiện.
+Mouse Player Module - Anti-Detection Version.
+Replays mouse events with humanization to avoid detection.
 """
 
 import time
@@ -12,7 +12,7 @@ from humanizer import HumanizedMover, HumanizeSettings
 
 
 class MousePlayer:
-    """Phát lại sự kiện chuột với chuyển động giống người thật."""
+    """Replays mouse events with human-like movement."""
 
     def __init__(self):
         self._recording: Optional[Recording] = None
@@ -22,10 +22,10 @@ class MousePlayer:
         self._stop_flag: bool = False
         self._speed: float = 1.0
         self._loop_count: int = 1
-        self._loop_interval: float = 0.0  # Khoảng cách giữa các lần lặp (giây)
+        self._loop_interval: float = 0.0  # Interval between loops (seconds)
         self._current_loop: int = 0
         self._current_event_index: int = 0
-        self._waiting_interval: bool = False  # Đang chờ interval
+        self._waiting_interval: bool = False  # Waiting for interval
 
         # Humanizer
         self.humanize_settings = HumanizeSettings()
@@ -100,9 +100,9 @@ class MousePlayer:
         self._current_loop = 0
         self._current_event_index = 0
 
-        # Khởi tạo humanizer
+        # Initialize humanizer
         self._mover = HumanizedMover(self.humanize_settings)
-        # Set vị trí ban đầu từ event đầu tiên
+        # Set initial position from first event
         first = recording.events[0]
         self._mover.update_position(first.x, first.y)
 
@@ -151,20 +151,20 @@ class MousePlayer:
                 if self._loop_count > 0 and self._current_loop >= self._loop_count:
                     break
 
-                # Chờ interval giữa các lần lặp
+                # Wait for interval between loops
                 if self._loop_interval > 0:
                     self._waiting_interval = True
-                    # Thêm jitter ±10% để tự nhiên hơn
+                    # Add ±10% jitter for natural feel
                     jitter = random.uniform(0.9, 1.1)
                     wait_time = self._loop_interval * jitter
                     self._interruptible_sleep(wait_time)
                     self._waiting_interval = False
                 else:
-                    # Delay ngẫu nhiên nhỏ nếu không có interval
+                    # Small random delay if no interval set
                     time.sleep(random.uniform(0.2, 0.5))
 
         except Exception as e:
-            print(f"[Player] Lỗi phát lại: {e}")
+            print(f"[Player] Playback error: {e}")
         finally:
             self._is_playing = False
             if self.on_playback_finished:
@@ -192,19 +192,19 @@ class MousePlayer:
             event = events[i]
             self._current_event_index = i
 
-            # Tính delay từ event trước
+            # Calculate delay from previous event
             if i > 0:
                 delay = (event.timestamp - events[i - 1].timestamp) / self._speed
             else:
                 delay = 0
 
             if event.event_type == EventType.MOVE and delay >= 0:
-                # === Gộp move events liên tiếp có delay ngắn ===
-                # Tìm chuỗi move events liên tiếp
+                # === Merge consecutive move events with short delays ===
+                # Find consecutive move event chain
                 total_duration = delay
                 last_move_idx = i
 
-                # Ngưỡng: nếu delay mỗi step < 5ms thì gộp lại
+                # Threshold: if delay per step < 5ms then merge
                 min_move_duration = 0.005
                 j = i + 1
                 while j < n and events[j].event_type == EventType.MOVE:
@@ -216,7 +216,7 @@ class MousePlayer:
                     else:
                         break
 
-                # Di chuyển đến vị trí cuối cùng của chuỗi
+                # Move to the last position of the chain
                 target_event = events[last_move_idx]
                 actual_duration = max(total_duration, 0.006)
                 self._execute_event(target_event, actual_duration)
@@ -228,7 +228,7 @@ class MousePlayer:
                 continue
 
             else:
-                # Non-move events: sleep rồi execute
+                # Non-move events: sleep then execute
                 if delay > 0:
                     self._interruptible_sleep(delay)
 
@@ -243,19 +243,19 @@ class MousePlayer:
             i += 1
 
     def _interruptible_sleep(self, duration: float):
-        """Sleep có thể bị interrupt bởi stop flag."""
+        """Sleep that can be interrupted by stop flag."""
         end_time = time.time() + duration
         while time.time() < end_time and not self._stop_flag:
             time.sleep(min(0.01, end_time - time.time()))
 
     def _execute_event(self, event: MouseEvent, duration: float = 0):
-        """Thực thi event với humanization."""
+        """Execute event with humanization."""
         try:
             if event.event_type == EventType.MOVE:
                 self._mover.move_to(event.x, event.y, duration)
 
             elif event.event_type == EventType.CLICK:
-                # Di chuyển đến vị trí click trước
+                # Move to click position first
                 self._mover.move_to(event.x, event.y, min(duration, 0.05))
                 self._mover.click(event.x, event.y, event.button, event.pressed)
 
@@ -264,6 +264,6 @@ class MousePlayer:
                 self._mover.scroll(event.scroll_dy)
 
         except Exception as e:
-            print(f"[Player] Lỗi event: {e}")
+            print(f"[Player] Event error: {e}")
             if "FailSafe" in str(e):
                 self._stop_flag = True

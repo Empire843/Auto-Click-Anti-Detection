@@ -1,115 +1,115 @@
 # ⚡ Auto-Click Tool — Anti-Detection
 
-Công cụ ghi lại và phát lại thao tác chuột tự động, tích hợp công nghệ **chống phát hiện** tiên tiến giúp mô phỏng hành vi con người thật. Phù hợp cho tự động hóa tác vụ lặp lại trên Windows.
+A mouse macro recorder & player with built-in **anti-detection** technology that mimics real human behavior. Designed for automating repetitive tasks on Windows while bypassing browser-based anti-bot systems.
 
 ---
 
-## ✨ Tính năng chính
+## ✨ Key Features
 
-### 🎬 Ghi & Phát lại
-- **Ghi lại** mọi thao tác chuột: di chuyển, click (trái/phải/giữa), cuộn
-- **Phát lại** với tốc độ tùy chỉnh (0.1x → 5.0x)
-- **Lặp lại** nhiều lần (hoặc vô hạn) với khoảng nghỉ giữa các lần
-- **Hiển thị quỹ đạo** chuột trực quan trên canvas
+### 🎬 Record & Replay
+- **Record** all mouse actions: movement, clicks (left/right/middle), scrolling
+- **Replay** with adjustable speed (0.1x → 5.0x)
+- **Loop** multiple times (or infinitely) with configurable rest intervals
+- **Visualize** mouse trajectory in real-time on an interactive canvas
 
 ### 📁 Playlist Controller
-- Quản lý và chạy tuần tự **nhiều bản ghi** khác nhau
-- Sắp xếp thứ tự (lên/xuống), thêm/xóa bản ghi
-- **Run All** — chạy toàn bộ playlist với cấu hình vòng lặp và khoảng nghỉ riêng
+- Manage and run **multiple recordings** sequentially
+- Reorder (up/down), add/remove recordings
+- **Run All** — execute the entire playlist with custom loop cycles and interval delays
 
-### 🛡 Anti-Detection (Chống phát hiện)
-| Kỹ thuật | Mô tả |
+### 🛡 Anti-Detection Engine
+| Technique | Description |
 |---|---|
-| **Win32 SendInput** | Gửi sự kiện chuột ở hardware-level, tạo ra `isTrusted=true` trong trình duyệt |
-| **Bezier Curves** | Di chuyển chuột theo đường cong tự nhiên thay vì đường thẳng |
-| **Gaussian Noise** | Thêm nhiễu ngẫu nhiên vào vị trí & thời gian |
-| **Speed Profile** | Tăng/giảm tốc tự nhiên (ease in-out cubic) |
-| **Micro-tremor** | Mô phỏng rung tay nhẹ của người thật |
-| **Variable Click Duration** | Thời gian nhấn/thả nút chuột không đều |
+| **Win32 SendInput** | Hardware-level mouse events that produce `isTrusted=true` in browsers |
+| **Bezier Curves** | Natural curved mouse movement instead of straight lines |
+| **Gaussian Noise** | Random position & timing perturbations |
+| **Speed Profile** | Natural acceleration/deceleration (ease in-out cubic) |
+| **Micro-tremor** | Subtle hand tremor simulation mimicking real human movement |
+| **Variable Click Duration** | Randomized press/release timing for realistic clicks |
 
 ---
 
-## 🖥 Giao diện
+## 🖥 Interface
 
-- Giao diện dark mode hiện đại sử dụng **CustomTkinter**
-- Phím tắt nhanh: `F6` (Ghi), `F7` (Phát), `F8` (Dừng khẩn cấp)
-- Hiển thị thống kê real-time: số events, clicks, thời lượng
-- Bảng sự kiện chi tiết & trình quản lý playlist tích hợp
+- Modern **dark mode** UI built with **CustomTkinter**
+- Hotkeys: `F6` (Record), `F7` (Play), `F8` (Emergency Stop)
+- Real-time stats: event count, clicks, duration
+- Integrated event log & playlist manager
 
 ---
 
-## 📦 Cài đặt
+## 📦 Installation
 
-### Yêu cầu
+### Requirements
 - Python 3.10+
 - Windows 10/11
 
-### Cài đặt dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Chạy từ source
+### Run from source
 
 ```bash
 python main.py
 ```
 
-### Build thành file .exe
+### Build as standalone .exe
 
 ```bash
 pip install pyinstaller
 pyinstaller AutoClick.spec --noconfirm
 ```
 
-File `.exe` sẽ nằm trong thư mục `dist/`.
+The `.exe` will be generated in the `dist/` folder.
 
 ---
 
-## 🏗 Kiến trúc dự án
+## 🏗 Project Structure
 
 ```
 auto-click/
 ├── main.py             # Entry point
-├── gui.py              # Giao diện CustomTkinter
-├── recorder.py         # Module ghi thao tác chuột (pynput)
-├── player.py           # Module phát lại thao tác
-├── playlist.py         # Playlist controller — chạy tuần tự nhiều bản ghi
+├── gui.py              # CustomTkinter UI
+├── recorder.py         # Mouse event recorder (pynput)
+├── player.py           # Mouse event player
+├── playlist.py         # Playlist controller — sequential multi-recording execution
 ├── humanizer.py        # Anti-detection engine (Bezier, SendInput, Noise...)
 ├── models.py           # Data models: MouseEvent, Recording
-├── utils.py            # Tiện ích: quản lý config, format, đường dẫn
+├── utils.py            # Utilities: config management, formatting, paths
 ├── requirements.txt    # Dependencies
 ├── AutoClick.spec      # PyInstaller build config
-└── recordings/         # Thư mục mặc định lưu bản ghi (.json)
+└── recordings/         # Default directory for saved recordings (.json)
 ```
 
 ---
 
-## 🎮 Hướng dẫn sử dụng
+## 🎮 Usage
 
-1. **Ghi lại thao tác**: Nhấn `F6` hoặc nút "Bắt đầu ghi" → thực hiện thao tác chuột → nhấn `F6` lần nữa để dừng
-2. **Lưu bản ghi**: Nhấn "Lưu" để lưu thành file `.json`
-3. **Phát lại**: Nhấn `F7` hoặc nút "Phát lại" — điều chỉnh tốc độ, số vòng lặp, khoảng nghỉ
-4. **Playlist**: Chuyển sang tab "Playlist" → thêm nhiều bản ghi → nhấn "Run All"
-5. **Dừng khẩn cấp**: Nhấn `F8` bất cứ lúc nào để dừng toàn bộ
-
----
-
-## ⚙️ Cấu hình Anti-Detection
-
-Tất cả có thể bật/tắt trực tiếp trên giao diện:
-
-- **Humanize chuyển động** — Bật toàn bộ hệ thống chống phát hiện
-- **Win32 SendInput (HW)** — Dùng hardware-level API thay vì pyautogui
-- **Bezier curves** — Di chuyển chuột theo đường cong
-- **Micro-tremor** — Mô phỏng rung tay người thật
+1. **Record**: Press `F6` or click "Start Recording" → perform mouse actions → press `F6` again to stop
+2. **Save**: Click "Save" to export as a `.json` file
+3. **Replay**: Press `F7` or click "Play" — adjust speed, loop count, and rest interval as needed
+4. **Playlist**: Switch to the "Playlist" tab → add multiple recordings → click "Run All"
+5. **Emergency Stop**: Press `F8` at any time to immediately halt all activity
 
 ---
 
-## 📝 Định dạng bản ghi
+## ⚙️ Anti-Detection Settings
 
-Bản ghi được lưu dưới dạng JSON:
+All toggles are accessible directly from the UI:
+
+- **Humanize movement** — Enable the full anti-detection pipeline
+- **Win32 SendInput (HW)** — Use hardware-level API instead of pyautogui
+- **Bezier curves** — Curved mouse paths
+- **Micro-tremor** — Simulate natural hand tremor
+
+---
+
+## 📝 Recording Format
+
+Recordings are stored as JSON files:
 
 ```json
 {
@@ -139,4 +139,4 @@ Bản ghi được lưu dưới dạng JSON:
 
 ## 📄 License
 
-MIT License — Sử dụng tự do cho mục đích cá nhân và thương mại.
+MIT License — Free for personal and commercial use.

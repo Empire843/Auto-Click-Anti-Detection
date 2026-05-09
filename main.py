@@ -1,12 +1,12 @@
 """
 Auto-Click Tool - Entry Point
-Ghi lại và Phát lại quỹ đạo chuột.
+Record and Replay mouse trajectories.
 """
 
 import sys
 import os
 
-# Đảm bảo import từ thư mục hiện tại
+# Ensure imports from current directory
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from gui import AutoClickApp

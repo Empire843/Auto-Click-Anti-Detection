@@ -1,13 +1,13 @@
 """
-Humanizer Module - Anti-Detection cho Auto-Click Tool.
+Humanizer Module - Anti-Detection for Auto-Click Tool.
 
-Kỹ thuật chống phát hiện:
-1. Win32 SendInput - Hardware-level mouse events (isTrusted=true trong JS)
-2. Bezier curves - Chuyển động chuột theo đường cong tự nhiên
-3. Gaussian noise - Thêm nhiễu vị trí + thời gian
-4. Speed profile - Tăng/giảm tốc tự nhiên (ease in/out)
-5. Micro-tremor - Rung nhẹ mô phỏng tay người thật
-6. Variable click duration - Thời gian nhấn/thả không đều
+Anti-detection techniques:
+1. Win32 SendInput - Hardware-level mouse events (isTrusted=true in JS)
+2. Bezier curves - Natural curved mouse movement
+3. Gaussian noise - Position + timing perturbation
+4. Speed profile - Natural acceleration/deceleration (ease in/out)
+5. Micro-tremor - Subtle tremor simulating real human hand
+6. Variable click duration - Non-uniform press/release timing
 """
 
 import ctypes
@@ -57,21 +57,21 @@ class INPUT(ctypes.Structure):
 
 
 def _send_input(inputs):
-    """Gửi input events qua Win32 API."""
+    """Send input events via Win32 API."""
     n = len(inputs)
     arr = (INPUT * n)(*inputs)
     ctypes.windll.user32.SendInput(n, arr, ctypes.sizeof(INPUT))
 
 
 def _get_screen_size():
-    """Lấy kích thước màn hình."""
+    """Get screen dimensions."""
     w = ctypes.windll.user32.GetSystemMetrics(0)
     h = ctypes.windll.user32.GetSystemMetrics(1)
     return w, h
 
 
 def _to_absolute(x: int, y: int) -> Tuple[int, int]:
-    """Chuyển tọa độ pixel sang tọa độ absolute (0-65535)."""
+    """Convert pixel coordinates to absolute coordinates (0-65535)."""
     sw, sh = _get_screen_size()
     abs_x = int(x * 65536 / sw)
     abs_y = int(y * 65536 / sh)
@@ -79,7 +79,7 @@ def _to_absolute(x: int, y: int) -> Tuple[int, int]:
 
 
 def win32_move_to(x: int, y: int):
-    """Di chuyển chuột bằng SendInput (hardware-level)."""
+    """Move mouse using SendInput (hardware-level)."""
     abs_x, abs_y = _to_absolute(x, y)
     inp = INPUT()
     inp.type = INPUT_MOUSE
@@ -92,7 +92,7 @@ def win32_move_to(x: int, y: int):
 
 
 def win32_mouse_down(button: str = "left"):
-    """Nhấn nút chuột bằng SendInput."""
+    """Press mouse button using SendInput."""
     flag_map = {"left": MOUSEEVENTF_LEFTDOWN, "right": MOUSEEVENTF_RIGHTDOWN, "middle": MOUSEEVENTF_MIDDLEDOWN}
     flag = flag_map.get(button, MOUSEEVENTF_LEFTDOWN)
     inp = INPUT()
@@ -104,7 +104,7 @@ def win32_mouse_down(button: str = "left"):
 
 
 def win32_mouse_up(button: str = "left"):
-    """Thả nút chuột bằng SendInput."""
+    """Release mouse button using SendInput."""
     flag_map = {"left": MOUSEEVENTF_LEFTUP, "right": MOUSEEVENTF_RIGHTUP, "middle": MOUSEEVENTF_MIDDLEUP}
     flag = flag_map.get(button, MOUSEEVENTF_LEFTUP)
     inp = INPUT()
@@ -116,7 +116,7 @@ def win32_mouse_up(button: str = "left"):
 
 
 def win32_scroll(dy: int):
-    """Cuộn chuột bằng SendInput."""
+    """Scroll mouse using SendInput."""
     inp = INPUT()
     inp.type = INPUT_MOUSE
     inp.union.mi.mouseData = ctypes.wintypes.DWORD(dy * 120)
@@ -127,11 +127,11 @@ def win32_scroll(dy: int):
 
 
 # ============================================================
-# Bezier Curve - Đường cong tự nhiên
+# Bezier Curve - Natural curved paths
 # ============================================================
 
 def _bezier_point(t: float, points: List[Tuple[float, float]]) -> Tuple[float, float]:
-    """Tính điểm trên đường Bezier bậc N tại t (0..1)."""
+    """Calculate point on N-degree Bezier curve at t (0..1)."""
     n = len(points) - 1
     x, y = 0.0, 0.0
     for i, (px, py) in enumerate(points):
@@ -142,7 +142,7 @@ def _bezier_point(t: float, points: List[Tuple[float, float]]) -> Tuple[float, f
 
 
 def _binomial(n: int, k: int) -> int:
-    """Hệ số nhị thức."""
+    """Binomial coefficient."""
     if k < 0 or k > n:
         return 0
     result = 1
@@ -158,8 +158,8 @@ def generate_bezier_path(
     curvature: float = 0.3
 ) -> List[Tuple[int, int]]:
     """
-    Tạo đường cong Bezier từ start đến end.
-    curvature: mức độ cong (0 = thẳng, 1 = rất cong)
+    Generate Bezier curve from start to end.
+    curvature: curve intensity (0 = straight, 1 = very curved)
     """
     sx, sy = start
     ex, ey = end
@@ -168,16 +168,16 @@ def generate_bezier_path(
     if dist < 3:
         return [end]
 
-    # Tạo 1-2 control points ngẫu nhiên
+    # Create 1-2 random control points
     num_controls = 1 if dist < 200 else 2
     controls = []
 
     for i in range(num_controls):
         t = (i + 1) / (num_controls + 1)
-        # Điểm trung gian
+        # Intermediate point
         mx = sx + (ex - sx) * t
         my = sy + (ey - sy) * t
-        # Offset ngẫu nhiên vuông góc với đường thẳng
+        # Random offset perpendicular to the line
         offset = dist * curvature * random.gauss(0, 0.5)
         angle = math.atan2(ey - sy, ex - sx) + math.pi / 2
         cx = mx + offset * math.cos(angle)
@@ -187,7 +187,7 @@ def generate_bezier_path(
     # Bezier points: start + controls + end
     bezier_pts = [(float(sx), float(sy))] + controls + [(float(ex), float(ey))]
 
-    # Sample points trên đường Bezier
+    # Sample points on the Bezier curve
     path = []
     for i in range(num_points):
         t = i / max(num_points - 1, 1)
@@ -198,11 +198,11 @@ def generate_bezier_path(
 
 
 # ============================================================
-# Speed Profile - Tăng/giảm tốc tự nhiên
+# Speed Profile - Natural acceleration/deceleration
 # ============================================================
 
 def ease_in_out(t: float) -> float:
-    """Ease in-out cubic: chậm → nhanh → chậm."""
+    """Ease in-out cubic: slow -> fast -> slow."""
     if t < 0.5:
         return 4 * t * t * t
     else:
@@ -211,8 +211,8 @@ def ease_in_out(t: float) -> float:
 
 def generate_time_points(num_points: int, total_duration: float) -> List[float]:
     """
-    Tạo danh sách thời gian với speed profile tự nhiên.
-    Kết quả: delay giữa mỗi điểm liên tiếp.
+    Generate time points with natural speed profile.
+    Result: delay between each consecutive pair of points.
     """
     if num_points <= 1:
         return [total_duration]
@@ -220,14 +220,14 @@ def generate_time_points(num_points: int, total_duration: float) -> List[float]:
     delays = []
     for i in range(num_points - 1):
         t = i / (num_points - 1)
-        # Ease in-out: chậm ở đầu và cuối
+        # Ease in-out: slow at start and end
         speed_factor = 0.3 + 0.7 * (1 - abs(ease_in_out(t) * 2 - 1))
-        # Thêm jitter ngẫu nhiên ±15%
+        # Add random jitter +/-15%
         jitter = random.gauss(1.0, 0.08)
         delay = (total_duration / num_points) * speed_factor * jitter
         delays.append(max(0.001, delay))
 
-    # Normalize để tổng = total_duration
+    # Normalize so total = total_duration
     total = sum(delays)
     if total > 0:
         scale = total_duration / total
@@ -241,56 +241,56 @@ def generate_time_points(num_points: int, total_duration: float) -> List[float]:
 # ============================================================
 
 def add_position_noise(x: int, y: int, intensity: float = 1.0) -> Tuple[int, int]:
-    """Thêm nhiễu Gaussian vào vị trí (mô phỏng rung tay)."""
+    """Add Gaussian noise to position (simulates hand tremor)."""
     noise_x = int(random.gauss(0, 0.8 * intensity))
     noise_y = int(random.gauss(0, 0.8 * intensity))
     return x + noise_x, y + noise_y
 
 
 def add_timing_noise(delay: float, intensity: float = 1.0) -> float:
-    """Thêm nhiễu vào thời gian chờ."""
+    """Add noise to timing delay."""
     noise = random.gauss(0, delay * 0.05 * intensity)
     return max(0.001, delay + noise)
 
 
 def random_click_hold_duration() -> float:
-    """Thời gian giữ nút chuột (50-150ms, phân phối Gaussian)."""
+    """Mouse button hold duration (50-150ms, Gaussian distribution)."""
     return max(0.03, random.gauss(0.085, 0.025))
 
 
 # ============================================================
-# HumanizedMover - Kết hợp tất cả kỹ thuật
+# HumanizedMover - Combines all techniques
 # ============================================================
 
 @dataclass
 class HumanizeSettings:
-    """Cài đặt humanization."""
-    enabled: bool = True           # Bật/tắt humanization
-    bezier_curvature: float = 0.25  # Mức độ cong (0-1)
-    position_noise: float = 1.0    # Cường độ nhiễu vị trí (0-3)
-    timing_noise: float = 1.0     # Cường độ nhiễu thời gian (0-3)
-    micro_tremor: bool = True      # Bật rung nhẹ
-    use_win32: bool = True         # Dùng SendInput thay vì pyautogui
-    move_steps_min: int = 20       # Số bước di chuyển tối thiểu
-    move_steps_max: int = 80       # Số bước di chuyển tối đa
+    """Humanization settings."""
+    enabled: bool = True           # Enable/disable humanization
+    bezier_curvature: float = 0.25  # Curve intensity (0-1)
+    position_noise: float = 1.0    # Position noise intensity (0-3)
+    timing_noise: float = 1.0     # Timing noise intensity (0-3)
+    micro_tremor: bool = True      # Enable subtle tremor
+    use_win32: bool = True         # Use SendInput instead of pyautogui
+    move_steps_min: int = 20       # Minimum movement steps
+    move_steps_max: int = 80       # Maximum movement steps
 
 
 class HumanizedMover:
-    """Di chuyển chuột giống người thật."""
+    """Moves mouse in a human-like manner."""
 
     def __init__(self, settings: HumanizeSettings = None):
         self.settings = settings or HumanizeSettings()
         self._last_x = 0
         self._last_y = 0
 
-    # Thời gian sleep tối thiểu mỗi bước (giây) - Windows timer resolution
+    # Minimum sleep per step (seconds) - Windows timer resolution
     MIN_STEP_DURATION = 0.002  # 2ms
 
     def move_to(self, x: int, y: int, duration: float = 0.0):
         """
-        Di chuyển chuột đến (x, y) theo đường cong tự nhiên.
-        duration: thời gian di chuyển (0 = instant)
-        Tự động điều chỉnh số bước Bezier theo duration để tránh nhảy chuột.
+        Move mouse to (x, y) along a natural curve.
+        duration: movement time (0 = instant)
+        Automatically adjusts Bezier steps based on duration to prevent mouse jumping.
         """
         if not self.settings.enabled:
             if self.settings.use_win32:
@@ -307,7 +307,7 @@ class HumanizedMover:
         dist = math.sqrt((x - start[0]) ** 2 + (y - start[1]) ** 2)
 
         if dist < 2:
-            # Quá gần → di chuyển trực tiếp, không cần interpolate
+            # Too close - move directly, no interpolation needed
             if self.settings.use_win32:
                 win32_move_to(x, y)
             else:
@@ -316,32 +316,32 @@ class HumanizedMover:
             self._last_x, self._last_y = x, y
             return
 
-        # === Tính số bước dựa trên CẢ khoảng cách VÀ thời gian ===
-        # Bước theo khoảng cách (mỗi ~8px 1 bước)
+        # === Calculate steps based on BOTH distance AND time ===
+        # Steps by distance (1 step per ~8px)
         steps_by_dist = int(dist / 8)
         steps_by_dist = max(self.settings.move_steps_min, min(self.settings.move_steps_max, steps_by_dist))
 
-        # Bước tối đa theo thời gian (đảm bảo mỗi step ≥ 2ms)
+        # Max steps by time (ensure each step >= 2ms)
         if duration > 0:
             steps_by_time = int(duration / self.MIN_STEP_DURATION)
         else:
             steps_by_time = 5  # instant move
 
-        # Lấy giá trị nhỏ hơn để đảm bảo mượt
+        # Take smaller value to ensure smoothness
         steps = max(3, min(steps_by_dist, steps_by_time))
 
-        # Đảm bảo duration tối thiểu cho interpolation
+        # Ensure minimum duration for interpolation
         actual_duration = max(duration, steps * self.MIN_STEP_DURATION)
 
-        # Tạo đường Bezier
+        # Generate Bezier path
         path = generate_bezier_path(start, end, steps, self.settings.bezier_curvature)
 
-        # Tạo timing tự nhiên
+        # Generate natural timing
         delays = generate_time_points(len(path), actual_duration)
 
-        # Di chuyển theo path
+        # Move along path
         for i, (px, py) in enumerate(path):
-            # Thêm micro-tremor (mỗi 3 bước)
+            # Add micro-tremor (every 3 steps)
             if self.settings.micro_tremor and i % 3 == 0:
                 px, py = add_position_noise(px, py, self.settings.position_noise * 0.5)
 
@@ -351,7 +351,7 @@ class HumanizedMover:
                 import pyautogui
                 pyautogui.moveTo(px, py, _pause=False)
 
-            # Delay với noise
+            # Delay with noise
             if i < len(delays):
                 delay = add_timing_noise(delays[i], self.settings.timing_noise)
                 if delay >= self.MIN_STEP_DURATION:
@@ -360,7 +360,7 @@ class HumanizedMover:
         self._last_x, self._last_y = x, y
 
     def click(self, x: int, y: int, button: str = "left", pressed: bool = True):
-        """Click chuột tại vị trí."""
+        """Click mouse at position."""
         if self.settings.use_win32:
             if pressed:
                 win32_mouse_down(button)
@@ -374,7 +374,7 @@ class HumanizedMover:
                 pyautogui.mouseUp(x, y, button=button, _pause=False)
 
     def scroll(self, dy: int):
-        """Cuộn chuột."""
+        """Scroll mouse."""
         if self.settings.use_win32:
             win32_scroll(dy)
         else:
@@ -382,6 +382,6 @@ class HumanizedMover:
             pyautogui.scroll(dy, _pause=False)
 
     def update_position(self, x: int, y: int):
-        """Cập nhật vị trí hiện tại (không di chuyển)."""
+        """Update current position (without moving)."""
         self._last_x = x
         self._last_y = y

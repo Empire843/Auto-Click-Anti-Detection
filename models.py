@@ -1,6 +1,6 @@
 """
-Data models cho Auto-Click Tool.
-Định nghĩa cấu trúc dữ liệu cho các sự kiện chuột và recording.
+Data models for Auto-Click Tool.
+Defines data structures for mouse events and recordings.
 """
 
 import json
@@ -11,14 +11,14 @@ from enum import Enum
 
 
 class EventType(str, Enum):
-    """Loại sự kiện chuột."""
+    """Mouse event type."""
     MOVE = "move"
     CLICK = "click"
     SCROLL = "scroll"
 
 
 class ButtonType(str, Enum):
-    """Loại nút chuột."""
+    """Mouse button type."""
     LEFT = "left"
     RIGHT = "right"
     MIDDLE = "middle"
@@ -27,15 +27,15 @@ class ButtonType(str, Enum):
 
 @dataclass
 class MouseEvent:
-    """Một sự kiện chuột đơn lẻ."""
-    timestamp: float          # Thời gian tương đối (giây) từ event đầu tiên
+    """A single mouse event."""
+    timestamp: float          # Relative time (seconds) from first event
     event_type: str           # move, click, scroll
-    x: int                    # Tọa độ X
-    y: int                    # Tọa độ Y
+    x: int                    # X coordinate
+    y: int                    # Y coordinate
     button: str = "none"      # left, right, middle
-    pressed: bool = False     # True = nhấn, False = thả
-    scroll_dx: int = 0        # Cuộn ngang
-    scroll_dy: int = 0        # Cuộn dọc
+    pressed: bool = False     # True = press, False = release
+    scroll_dx: int = 0        # Horizontal scroll
+    scroll_dy: int = 0        # Vertical scroll
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -47,7 +47,7 @@ class MouseEvent:
 
 @dataclass
 class Recording:
-    """Một bản ghi chứa danh sách sự kiện chuột."""
+    """A recording containing a list of mouse events."""
     name: str = "Untitled"
     events: List[MouseEvent] = field(default_factory=list)
     created_at: str = field(default_factory=lambda: time.strftime("%Y-%m-%d %H:%M:%S"))
@@ -56,7 +56,7 @@ class Recording:
 
     @property
     def duration(self) -> float:
-        """Tổng thời lượng recording (giây)."""
+        """Total recording duration (seconds)."""
         if not self.events:
             return 0.0
         return self.events[-1].timestamp
@@ -107,13 +107,13 @@ class Recording:
         )
 
     def save_to_file(self, filepath: str):
-        """Lưu recording ra file JSON."""
+        """Save recording to JSON file."""
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(self.to_dict(), f, indent=2, ensure_ascii=False)
 
     @classmethod
     def load_from_file(cls, filepath: str) -> 'Recording':
-        """Tải recording từ file JSON."""
+        """Load recording from JSON file."""
         with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)
         return cls.from_dict(data)

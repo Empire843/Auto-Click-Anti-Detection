@@ -1,5 +1,5 @@
 """
-Playlist Controller - Quản lý và chạy tuần tự nhiều recordings.
+Playlist Controller - Manage and run multiple recordings sequentially.
 """
 
 import time
@@ -12,7 +12,7 @@ from humanizer import HumanizeSettings
 
 
 class PlaylistItem:
-    """Một mục trong playlist."""
+    """A single item in the playlist."""
     def __init__(self, filepath: str, recording: Recording):
         self.filepath = filepath
         self.recording = recording
@@ -35,7 +35,7 @@ class PlaylistItem:
 
 
 class PlaylistController:
-    """Điều khiển chạy tuần tự danh sách recordings."""
+    """Controls sequential execution of a list of recordings."""
 
     def __init__(self):
         self.items: List[PlaylistItem] = []
@@ -45,8 +45,8 @@ class PlaylistController:
         self._stop_flag: bool = False
         self._current_index: int = 0
         self._current_cycle: int = 0
-        self._total_cycles: int = 1   # 0 = vô hạn
-        self._interval: float = 0.0    # Nghỉ giữa các recording (giây)
+        self._total_cycles: int = 1   # 0 = infinite
+        self._interval: float = 0.0    # Rest between recordings (seconds)
         self._waiting: bool = False
 
         # Callbacks
@@ -85,7 +85,7 @@ class PlaylistController:
         return self._player
 
     def add_item(self, filepath: str, recording: Recording) -> int:
-        """Thêm recording vào playlist. Trả về index."""
+        """Add recording to playlist. Returns index."""
         item = PlaylistItem(filepath, recording)
         self.items.append(item)
         return len(self.items) - 1
@@ -107,7 +107,7 @@ class PlaylistController:
 
     def start(self, speed: float = 1.0, total_cycles: int = 1, interval: float = 0.0,
               humanize_settings: HumanizeSettings = None):
-        """Bắt đầu chạy playlist."""
+        """Start running the playlist."""
         if self._is_running or not self.items:
             return
 
@@ -119,7 +119,7 @@ class PlaylistController:
         self._interval = interval
 
         self._player.speed = speed
-        self._player.loop_count = 1  # Mỗi recording chạy 1 lần
+        self._player.loop_count = 1  # Each recording runs once
         self._player.loop_interval = 0
         if humanize_settings:
             self._player.humanize_settings = humanize_settings
@@ -128,7 +128,7 @@ class PlaylistController:
         self._thread.start()
 
     def stop(self):
-        """Dừng playlist."""
+        """Stop the playlist."""
         self._stop_flag = True
         self._player.stop()
         if self._thread and self._thread.is_alive():
@@ -137,7 +137,7 @@ class PlaylistController:
         self._thread = None
 
     def _run_loop(self):
-        """Vòng lặp chính chạy playlist."""
+        """Main playlist execution loop."""
         import random
         try:
             while not self._stop_flag:
@@ -153,7 +153,7 @@ class PlaylistController:
                     if self.on_item_started:
                         self.on_item_started(idx, item)
 
-                    # Chạy recording này
+                    # Play this recording
                     self._play_single(item.recording)
 
                     if self._stop_flag:
@@ -162,7 +162,7 @@ class PlaylistController:
                     if self.on_item_finished:
                         self.on_item_finished(idx, item)
 
-                    # Nghỉ giữa các recording
+                    # Rest between recordings
                     if idx < len(self.items) - 1 and self._interval > 0:
                         self._waiting = True
                         jitter = random.uniform(0.9, 1.1)
@@ -175,11 +175,11 @@ class PlaylistController:
                 if self.on_cycle_completed:
                     self.on_cycle_completed(self._current_cycle)
 
-                # Kiểm tra hoàn thành
+                # Check completion
                 if self._total_cycles > 0 and self._current_cycle >= self._total_cycles:
                     break
 
-                # Nghỉ giữa các cycle
+                # Rest between cycles
                 if self._interval > 0:
                     self._waiting = True
                     jitter = random.uniform(0.9, 1.1)
@@ -187,7 +187,7 @@ class PlaylistController:
                     self._waiting = False
 
         except Exception as e:
-            print(f"[Playlist] Lỗi: {e}")
+            print(f"[Playlist] Error: {e}")
         finally:
             self._is_running = False
             self._waiting = False
@@ -195,7 +195,7 @@ class PlaylistController:
                 self.on_playlist_finished()
 
     def _play_single(self, recording: Recording):
-        """Chạy một recording và chờ hoàn thành."""
+        """Play a single recording and wait for completion."""
         done_event = threading.Event()
 
         original_callback = self._player.on_playback_finished
@@ -203,7 +203,7 @@ class PlaylistController:
 
         self._player.start(recording)
 
-        # Chờ player hoàn thành
+        # Wait for player to finish
         while not done_event.is_set() and not self._stop_flag:
             done_event.wait(timeout=0.1)
 

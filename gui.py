@@ -1,5 +1,5 @@
 """
-GUI cho Auto-Click Tool sử dụng CustomTkinter.
+GUI for Auto-Click Tool using CustomTkinter.
 """
 
 import os
@@ -72,7 +72,7 @@ class AutoClickApp(ctk.CTk):
         top.pack_propagate(False)
         ctk.CTkLabel(top, text="⚡ AUTO-CLICK  ·  Anti-Detection", font=("Segoe UI", 18, "bold"),
                       text_color=ACCENT_LIGHT).pack(side="left", padx=16)
-        self._status_label = ctk.CTkLabel(top, text="● SẴN SÀNG", font=("Segoe UI", 13),
+        self._status_label = ctk.CTkLabel(top, text="● READY", font=("Segoe UI", 13),
                                            text_color=GREEN)
         self._status_label.pack(side="right", padx=16)
 
@@ -100,11 +100,11 @@ class AutoClickApp(ctk.CTk):
         sec1 = ctk.CTkFrame(parent, fg_color=BG_CARD, corner_radius=12)
         sec1.pack(fill="x", pady=(0, 8))
 
-        ctk.CTkLabel(sec1, text="🎬 GHI LẠI", font=("Segoe UI", 14, "bold"),
+        ctk.CTkLabel(sec1, text="🎬 RECORD", font=("Segoe UI", 14, "bold"),
                       text_color=TEXT).pack(anchor="w", padx=14, pady=(12, 6))
 
         self._btn_record = ctk.CTkButton(
-            sec1, text="⏺  Bắt đầu ghi  (F6)", font=("Segoe UI", 13, "bold"),
+            sec1, text="⏺  Start Recording  (F6)", font=("Segoe UI", 13, "bold"),
             fg_color=RED, hover_color=RED_DARK, height=42, corner_radius=10,
             command=self._toggle_record
         )
@@ -118,11 +118,11 @@ class AutoClickApp(ctk.CTk):
         sec2 = ctk.CTkFrame(parent, fg_color=BG_CARD, corner_radius=12)
         sec2.pack(fill="x", pady=(0, 8))
 
-        ctk.CTkLabel(sec2, text="▶ PHÁT LẠI", font=("Segoe UI", 14, "bold"),
+        ctk.CTkLabel(sec2, text="▶ PLAYBACK", font=("Segoe UI", 14, "bold"),
                       text_color=TEXT).pack(anchor="w", padx=14, pady=(12, 6))
 
         self._btn_play = ctk.CTkButton(
-            sec2, text="▶  Phát lại  (F7)", font=("Segoe UI", 13, "bold"),
+            sec2, text="▶  Play  (F7)", font=("Segoe UI", 13, "bold"),
             fg_color=GREEN_DARK, hover_color="#1e8449", height=42, corner_radius=10,
             command=self._toggle_play, state="disabled"
         )
@@ -131,7 +131,7 @@ class AutoClickApp(ctk.CTk):
         # Speed
         speed_frame = ctk.CTkFrame(sec2, fg_color="transparent")
         speed_frame.pack(fill="x", padx=14, pady=4)
-        ctk.CTkLabel(speed_frame, text="Tốc độ:", font=("Segoe UI", 12),
+        ctk.CTkLabel(speed_frame, text="Speed:", font=("Segoe UI", 12),
                       text_color=TEXT_DIM).pack(side="left")
         self._speed_label = ctk.CTkLabel(speed_frame, text="1.0x", font=("Segoe UI", 12, "bold"),
                                           text_color=ACCENT_LIGHT)
@@ -148,7 +148,7 @@ class AutoClickApp(ctk.CTk):
         # Loop count
         loop_frame = ctk.CTkFrame(sec2, fg_color="transparent")
         loop_frame.pack(fill="x", padx=14, pady=(0, 4))
-        ctk.CTkLabel(loop_frame, text="Lặp lại:", font=("Segoe UI", 12),
+        ctk.CTkLabel(loop_frame, text="Loop:", font=("Segoe UI", 12),
                       text_color=TEXT_DIM).pack(side="left")
 
         self._loop_var = ctk.StringVar(value="1")
@@ -157,13 +157,13 @@ class AutoClickApp(ctk.CTk):
             fg_color=BG_DARK, border_color=BORDER, justify="center"
         )
         self._loop_entry.pack(side="right")
-        ctk.CTkLabel(loop_frame, text="(0 = vô hạn)", font=("Segoe UI", 10),
+        ctk.CTkLabel(loop_frame, text="(0 = infinite)", font=("Segoe UI", 10),
                       text_color=TEXT_DIM).pack(side="right", padx=6)
 
-        # Interval (khoảng cách giữa các lần lặp)
+        # Interval between loops
         interval_frame = ctk.CTkFrame(sec2, fg_color="transparent")
         interval_frame.pack(fill="x", padx=14, pady=(0, 4))
-        ctk.CTkLabel(interval_frame, text="Nghỉ giữa lần lặp:", font=("Segoe UI", 12),
+        ctk.CTkLabel(interval_frame, text="Loop interval:", font=("Segoe UI", 12),
                       text_color=TEXT_DIM).pack(side="left")
 
         self._interval_var = ctk.StringVar(value="0")
@@ -172,7 +172,7 @@ class AutoClickApp(ctk.CTk):
             fg_color=BG_DARK, border_color=BORDER, justify="center"
         )
         self._interval_entry.pack(side="right")
-        ctk.CTkLabel(interval_frame, text="giây", font=("Segoe UI", 10),
+        ctk.CTkLabel(interval_frame, text="sec", font=("Segoe UI", 10),
                       text_color=TEXT_DIM).pack(side="right", padx=6)
 
         # Interval status label
@@ -187,7 +187,7 @@ class AutoClickApp(ctk.CTk):
 
         # Emergency stop
         self._btn_stop = ctk.CTkButton(
-            parent, text="⛔  DỪNG KHẨN CẤP  (F8)", font=("Segoe UI", 13, "bold"),
+            parent, text="⛔  EMERGENCY STOP  (F8)", font=("Segoe UI", 13, "bold"),
             fg_color="#2c2c3a", hover_color=RED, height=38, corner_radius=10,
             border_width=1, border_color=RED, text_color=RED,
             command=self._emergency_stop
@@ -204,7 +204,7 @@ class AutoClickApp(ctk.CTk):
         # Humanize toggle
         self._humanize_var = ctk.BooleanVar(value=True)
         ctk.CTkSwitch(
-            sec_anti, text="Humanize chuyển động", font=("Segoe UI", 12),
+            sec_anti, text="Humanize movement", font=("Segoe UI", 12),
             variable=self._humanize_var, command=self._on_humanize_toggle,
             progress_color=GREEN, button_color=ACCENT, text_color=TEXT_DIM
         ).pack(anchor="w", padx=14, pady=2)
@@ -228,7 +228,7 @@ class AutoClickApp(ctk.CTk):
         # Micro-tremor toggle
         self._tremor_var = ctk.BooleanVar(value=True)
         ctk.CTkSwitch(
-            sec_anti, text="Micro-tremor (rung tay)", font=("Segoe UI", 12),
+            sec_anti, text="Micro-tremor (hand shake)", font=("Segoe UI", 12),
             variable=self._tremor_var, command=self._on_humanize_toggle,
             progress_color=GREEN, button_color=ACCENT, text_color=TEXT_DIM
         ).pack(anchor="w", padx=14, pady=(2, 10))
@@ -244,13 +244,13 @@ class AutoClickApp(ctk.CTk):
         btn_frame.pack(fill="x", padx=14, pady=(0, 6))
 
         ctk.CTkButton(
-            btn_frame, text="💾 Lưu", font=("Segoe UI", 12), width=80,
+            btn_frame, text="💾 Save", font=("Segoe UI", 12), width=80,
             fg_color=ACCENT, hover_color=ACCENT_LIGHT, height=34, corner_radius=8,
             command=self._save_recording
         ).pack(side="left", expand=True, fill="x", padx=(0, 4))
 
         ctk.CTkButton(
-            btn_frame, text="📂 Mở", font=("Segoe UI", 12), width=80,
+            btn_frame, text="📂 Open", font=("Segoe UI", 12), width=80,
             fg_color="#2c2c3a", hover_color=BG_CARD_HOVER, height=34, corner_radius=8,
             border_width=1, border_color=BORDER,
             command=self._load_recording
@@ -280,10 +280,10 @@ class AutoClickApp(ctk.CTk):
 
         header = ctk.CTkFrame(canvas_frame, fg_color="transparent")
         header.pack(fill="x", padx=14, pady=(10, 4))
-        ctk.CTkLabel(header, text="🖱 QUỸ ĐẠO CHUỘT", font=("Segoe UI", 13, "bold"),
+        ctk.CTkLabel(header, text="🖱 MOUSE TRAJECTORY", font=("Segoe UI", 13, "bold"),
                       text_color=TEXT).pack(side="left")
         self._btn_clear = ctk.CTkButton(
-            header, text="🗑 Xóa", font=("Segoe UI", 11), width=60,
+            header, text="🗑 Clear", font=("Segoe UI", 11), width=60,
             fg_color="transparent", hover_color=BG_CARD_HOVER, height=28,
             text_color=TEXT_DIM, command=self._clear_canvas
         )
@@ -296,7 +296,7 @@ class AutoClickApp(ctk.CTk):
         self._canvas.pack(fill="both", expand=True, padx=10, pady=(0, 10))
 
     def _build_tabs(self, parent):
-        """Tạo tabview với Events và Playlist."""
+        """Create tabview with Events and Playlist tabs."""
         self._tabview = ctk.CTkTabview(parent, fg_color=BG_CARD, corner_radius=12,
                                         segmented_button_fg_color=BG_DARK,
                                         segmented_button_selected_color=ACCENT,
@@ -304,7 +304,7 @@ class AutoClickApp(ctk.CTk):
                                         height=240)
         self._tabview.pack(fill="both", expand=False, pady=(0, 0))
 
-        tab_events = self._tabview.add("📋 Sự kiện")
+        tab_events = self._tabview.add("📋 Events")
         tab_playlist = self._tabview.add("📁 Playlist")
 
         self._build_event_list(tab_events)
@@ -324,19 +324,19 @@ class AutoClickApp(ctk.CTk):
         self._event_text.pack(fill="both", expand=True, padx=8, pady=(0, 6))
 
     def _build_playlist_panel(self, parent):
-        """Panel quản lý playlist."""
+        """Playlist management panel."""
         # Top controls
         ctrl = ctk.CTkFrame(parent, fg_color="transparent")
         ctrl.pack(fill="x", padx=8, pady=(6, 4))
 
         ctk.CTkButton(
-            ctrl, text="➕ Thêm", font=("Segoe UI", 11), width=70,
+            ctrl, text="➕ Add", font=("Segoe UI", 11), width=70,
             fg_color=ACCENT, hover_color=ACCENT_LIGHT, height=30, corner_radius=8,
             command=self._playlist_add
         ).pack(side="left", padx=(0, 4))
 
         ctk.CTkButton(
-            ctrl, text="🗑 Xóa", font=("Segoe UI", 11), width=60,
+            ctrl, text="🗑 Remove", font=("Segoe UI", 11), width=60,
             fg_color="#2c2c3a", hover_color=RED, height=30, corner_radius=8,
             border_width=1, border_color=BORDER,
             command=self._playlist_remove
@@ -354,7 +354,7 @@ class AutoClickApp(ctk.CTk):
             command=self._playlist_move_down
         ).pack(side="left", padx=(0, 4))
 
-        self._pl_count_label = ctk.CTkLabel(ctrl, text="0 bản ghi", font=("Segoe UI", 11),
+        self._pl_count_label = ctk.CTkLabel(ctrl, text="0 recordings", font=("Segoe UI", 11),
                                              text_color=TEXT_DIM)
         self._pl_count_label.pack(side="right")
 
@@ -375,7 +375,7 @@ class AutoClickApp(ctk.CTk):
         settings_row = ctk.CTkFrame(bottom, fg_color="transparent")
         settings_row.pack(fill="x", pady=(0, 4))
 
-        ctk.CTkLabel(settings_row, text="Lặp:", font=("Segoe UI", 11),
+        ctk.CTkLabel(settings_row, text="Loop:", font=("Segoe UI", 11),
                       text_color=TEXT_DIM).pack(side="left")
         self._pl_cycles_var = ctk.StringVar(value="1")
         ctk.CTkEntry(
@@ -383,14 +383,14 @@ class AutoClickApp(ctk.CTk):
             fg_color=BG_DARK, border_color=BORDER, justify="center"
         ).pack(side="left", padx=(4, 8))
 
-        ctk.CTkLabel(settings_row, text="Nghỉ:", font=("Segoe UI", 11),
+        ctk.CTkLabel(settings_row, text="Rest:", font=("Segoe UI", 11),
                       text_color=TEXT_DIM).pack(side="left")
         self._pl_interval_var = ctk.StringVar(value="2")
         ctk.CTkEntry(
             settings_row, width=45, font=("Segoe UI", 11), textvariable=self._pl_interval_var,
             fg_color=BG_DARK, border_color=BORDER, justify="center"
         ).pack(side="left", padx=(4, 2))
-        ctk.CTkLabel(settings_row, text="giây", font=("Segoe UI", 10),
+        ctk.CTkLabel(settings_row, text="sec", font=("Segoe UI", 10),
                       text_color=TEXT_DIM).pack(side="left")
 
         # Playlist status
@@ -454,7 +454,7 @@ class AutoClickApp(ctk.CTk):
 
         self.recorder.start()
         self._update_status("recording")
-        self._btn_record.configure(text="⏹  Dừng ghi  (F6)", fg_color="#c0392b")
+        self._btn_record.configure(text="⏹  Stop Recording  (F6)", fg_color="#c0392b")
         self._btn_play.configure(state="disabled")
         self._start_timer()
 
@@ -466,7 +466,7 @@ class AutoClickApp(ctk.CTk):
             self._draw_full_trajectory()
 
         self._update_status("idle")
-        self._btn_record.configure(text="⏺  Bắt đầu ghi  (F6)", fg_color=RED)
+        self._btn_record.configure(text="⏺  Start Recording  (F6)", fg_color=RED)
         self._stop_timer()
         self._update_stats()
 
@@ -475,7 +475,7 @@ class AutoClickApp(ctk.CTk):
         if self.player.is_playing:
             self.player.stop()
             self._update_status("idle")
-            self._btn_play.configure(text="▶  Phát lại  (F7)", fg_color=GREEN_DARK)
+            self._btn_play.configure(text="▶  Play  (F7)", fg_color=GREEN_DARK)
             self._stop_play_timer()
         else:
             self._start_play()
@@ -505,7 +505,7 @@ class AutoClickApp(ctk.CTk):
         self.player.start(self.current_recording)
 
         self._update_status("playing")
-        self._btn_play.configure(text="⏹  Dừng phát  (F7)", fg_color="#c0392b")
+        self._btn_play.configure(text="⏹  Stop  (F7)", fg_color="#c0392b")
         self._btn_record.configure(state="disabled")
         self._start_play_timer()
 
@@ -514,7 +514,7 @@ class AutoClickApp(ctk.CTk):
 
     def _playback_done(self):
         self._update_status("idle")
-        self._btn_play.configure(text="▶  Phát lại  (F7)", fg_color=GREEN_DARK)
+        self._btn_play.configure(text="▶  Play  (F7)", fg_color=GREEN_DARK)
         self._btn_record.configure(state="normal")
         self._progress.set(0)
         self._interval_status.configure(text="")
@@ -524,11 +524,11 @@ class AutoClickApp(ctk.CTk):
     def _emergency_stop(self):
         if self.recorder.is_recording:
             self.recorder.stop()
-            self._btn_record.configure(text="⏺  Bắt đầu ghi  (F6)", fg_color=RED)
+            self._btn_record.configure(text="⏺  Start Recording  (F6)", fg_color=RED)
 
         if self.player.is_playing:
             self.player.stop()
-            self._btn_play.configure(text="▶  Phát lại  (F7)", fg_color=GREEN_DARK)
+            self._btn_play.configure(text="▶  Play  (F7)", fg_color=GREEN_DARK)
 
         if self.playlist.is_running:
             self.playlist.stop()
@@ -544,9 +544,9 @@ class AutoClickApp(ctk.CTk):
 
     # === File I/O ===
     def _select_recordings_folder(self):
-        """Chọn thư mục lưu recordings."""
+        """Select recordings save folder."""
         current = get_recordings_dir()
-        folder = filedialog.askdirectory(initialdir=current, title="Chọn thư mục lưu bản ghi")
+        folder = filedialog.askdirectory(initialdir=current, title="Select recordings folder")
         if folder:
             set_recordings_dir(folder)
             os.makedirs(folder, exist_ok=True)
@@ -555,7 +555,7 @@ class AutoClickApp(ctk.CTk):
 
     def _save_recording(self):
         if not self.current_recording or not self.current_recording.events:
-            messagebox.showwarning("Thông báo", "Chưa có recording nào để lưu!")
+            messagebox.showwarning("Warning", "No recording to save!")
             return
 
         filepath = filedialog.asksaveasfilename(
@@ -582,7 +582,7 @@ class AutoClickApp(ctk.CTk):
                 self._update_event_list_full()
                 self._update_status("idle")
             except Exception as e:
-                messagebox.showerror("Lỗi", f"Không thể tải file:\n{e}")
+                messagebox.showerror("Error", f"Failed to load file:\n{e}")
 
     # === Canvas Drawing ===
     def _draw_full_trajectory(self):
@@ -662,7 +662,7 @@ class AutoClickApp(ctk.CTk):
                 continue
             count += 1
             if count > 500:
-                self._event_text.insert("end", f"... và {self.current_recording.total_events - 500} events nữa\n")
+                self._event_text.insert("end", f"... and {self.current_recording.total_events - 500} more events\n")
                 break
             self._append_event_display(event)
 
@@ -689,20 +689,20 @@ class AutoClickApp(ctk.CTk):
     def _update_play_progress(self):
         if self.player.is_playing:
             self._progress.set(self.player.progress)
-            # Hiển thị trạng thái chờ interval
+            # Display interval wait status
             if self.player.is_waiting_interval:
                 loop = self.player.current_loop
                 total = self.player.loop_count
                 total_str = str(total) if total > 0 else "∞"
                 self._interval_status.configure(
-                    text=f"⏳ Đang nghỉ... (lần {loop}/{total_str})"
+                    text=f"⏳ Resting... (loop {loop}/{total_str})"
                 )
             else:
                 loop = self.player.current_loop
                 total = self.player.loop_count
                 total_str = str(total) if total > 0 else "∞"
                 self._interval_status.configure(
-                    text=f"▶ Đang phát lần {loop}/{total_str}"
+                    text=f"▶ Playing loop {loop}/{total_str}"
                 )
             self._play_timer_id = self.after(50, self._update_play_progress)
 
@@ -714,12 +714,12 @@ class AutoClickApp(ctk.CTk):
     # === Status ===
     def _update_status(self, status: str):
         config = {
-            "idle": ("● SẴN SÀNG", GREEN),
-            "recording": ("⏺ ĐANG GHI...", RED),
-            "playing": ("▶ ĐANG PHÁT...", YELLOW),
+            "idle": ("● READY", GREEN),
+            "recording": ("⏺ RECORDING...", RED),
+            "playing": ("▶ PLAYING...", YELLOW),
             "playlist": ("🚀 PLAYLIST...", "#e17055"),
         }
-        text, color = config.get(status, ("● SẴN SÀNG", GREEN))
+        text, color = config.get(status, ("● READY", GREEN))
         self._status_label.configure(text=text, text_color=color)
 
     def _update_stats(self):
@@ -756,7 +756,7 @@ class AutoClickApp(ctk.CTk):
 
     # === Playlist Methods ===
     def _playlist_add(self):
-        """Thêm recordings vào playlist."""
+        """Add recordings to playlist."""
         filepaths = filedialog.askopenfilenames(
             initialdir=get_recordings_dir(),
             filetypes=[("JSON Files", "*.json")]
@@ -766,7 +766,7 @@ class AutoClickApp(ctk.CTk):
                 rec = Recording.load_from_file(fp)
                 self.playlist.add_item(fp, rec)
             except Exception as e:
-                print(f"Lỗi tải {fp}: {e}")
+                print(f"Error loading {fp}: {e}")
         self._refresh_playlist()
 
     def _playlist_remove(self):
@@ -792,7 +792,7 @@ class AutoClickApp(ctk.CTk):
             self._pl_listbox.selection_set(idx + 1)
 
     def _refresh_playlist(self):
-        """Cập nhật hiển thị playlist."""
+        """Refresh playlist display."""
         self._pl_listbox.delete(0, tk.END)
         for i, item in enumerate(self.playlist.items):
             dur = format_duration(item.duration)
@@ -801,7 +801,7 @@ class AutoClickApp(ctk.CTk):
             if len(name) > 30:
                 name = name[:27] + "..."
             self._pl_listbox.insert(tk.END, f" {i+1}. {name}  ({dur}, {clicks} clicks)")
-        self._pl_count_label.configure(text=f"{len(self.playlist.items)} bản ghi")
+        self._pl_count_label.configure(text=f"{len(self.playlist.items)} recordings")
 
     def _toggle_run_all(self):
         if self.playlist.is_running:
@@ -815,10 +815,10 @@ class AutoClickApp(ctk.CTk):
 
     def _start_run_all(self):
         if not self.playlist.items:
-            messagebox.showwarning("Thông báo", "Playlist trống! Hãy thêm bản ghi trước.")
+            messagebox.showwarning("Warning", "Playlist is empty! Add recordings first.")
             return
 
-        # Dừng các hoạt động khác
+        # Stop other activities
         if self.recorder.is_recording:
             self._stop_record()
         if self.player.is_playing:
@@ -842,7 +842,7 @@ class AutoClickApp(ctk.CTk):
             humanize_settings=self.player.humanize_settings
         )
 
-        self._btn_run_all.configure(text="⏹  DẮng playlist", fg_color="#c0392b")
+        self._btn_run_all.configure(text="⏹  Stop Playlist", fg_color="#c0392b")
         self._btn_record.configure(state="disabled")
         self._btn_play.configure(state="disabled")
         self._update_status("playlist")
@@ -864,7 +864,7 @@ class AutoClickApp(ctk.CTk):
         self._btn_record.configure(state="normal")
         self._btn_play.configure(state="normal" if self.current_recording else "disabled")
         self._update_status("idle")
-        self._pl_status_label.configure(text="✅ Hoàn thành!")
+        self._pl_status_label.configure(text="✅ Completed!")
         self._stop_playlist_timer()
 
     def _start_playlist_timer(self):
@@ -879,9 +879,9 @@ class AutoClickApp(ctk.CTk):
             cycle_str = str(total_cycles) if total_cycles > 0 else "∞"
 
             if self.playlist.is_waiting:
-                self._pl_status_label.configure(text=f"⏳ Nghỉ... ({cycle}/{cycle_str})")
+                self._pl_status_label.configure(text=f"⏳ Resting... ({cycle}/{cycle_str})")
             else:
-                self._pl_status_label.configure(text=f"▶ {idx}/{total} (vòng {cycle}/{cycle_str})")
+                self._pl_status_label.configure(text=f"▶ {idx}/{total} (cycle {cycle}/{cycle_str})")
 
             self._playlist_timer_id = self.after(100, self._update_playlist_status)
 

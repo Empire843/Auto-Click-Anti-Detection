@@ -1,6 +1,6 @@
 """
 Mouse Recorder Module.
-Ghi lại toàn bộ sự kiện chuột (di chuyển, click, cuộn) sử dụng pynput.
+Records all mouse events (movement, clicks, scrolling) using pynput.
 """
 
 import time
@@ -14,10 +14,10 @@ from models import MouseEvent, Recording, EventType, ButtonType
 
 
 class MouseRecorder:
-    """Ghi lại sự kiện chuột real-time."""
+    """Records mouse events in real-time."""
 
-    # Khoảng cách tối thiểu giữa 2 move events (giây) để tránh quá nhiều data
-    MIN_MOVE_INTERVAL = 0.008  # ~125 samples/giây
+    # Minimum interval between 2 move events (seconds) to avoid excessive data
+    MIN_MOVE_INTERVAL = 0.008  # ~125 samples/sec
 
     def __init__(self):
         self._recording: Optional[Recording] = None
@@ -27,7 +27,7 @@ class MouseRecorder:
         self._is_recording: bool = False
         self._lock = threading.Lock()
 
-        # Callbacks cho GUI
+        # Callbacks for GUI
         self.on_event_recorded: Optional[Callable[[MouseEvent], None]] = None
         self.on_recording_stopped: Optional[Callable[[Recording], None]] = None
 
@@ -41,7 +41,7 @@ class MouseRecorder:
 
     @property
     def elapsed_time(self) -> float:
-        """Thời gian đã ghi (giây)."""
+        """Elapsed recording time (seconds)."""
         if self._is_recording and self._start_time > 0:
             return time.time() - self._start_time
         elif self._recording:
@@ -49,7 +49,7 @@ class MouseRecorder:
         return 0.0
 
     def start(self):
-        """Bắt đầu ghi sự kiện chuột."""
+        """Start recording mouse events."""
         if self._is_recording:
             return
 
@@ -72,7 +72,7 @@ class MouseRecorder:
         self._listener.start()
 
     def stop(self) -> Optional[Recording]:
-        """Dừng ghi và trả về Recording."""
+        """Stop recording and return the Recording."""
         if not self._is_recording:
             return self._recording
 
@@ -90,11 +90,11 @@ class MouseRecorder:
         return recording
 
     def _get_relative_time(self) -> float:
-        """Lấy thời gian tương đối từ khi bắt đầu ghi."""
+        """Get relative time since recording started."""
         return time.time() - self._start_time
 
     def _button_to_str(self, button) -> str:
-        """Chuyển đổi pynput Button sang string."""
+        """Convert pynput Button to string."""
         if button == Button.left:
             return ButtonType.LEFT
         elif button == Button.right:
@@ -104,7 +104,7 @@ class MouseRecorder:
         return ButtonType.NONE
 
     def _add_event(self, event: MouseEvent):
-        """Thêm event vào recording (thread-safe)."""
+        """Add event to recording (thread-safe)."""
         with self._lock:
             if self._recording and self._is_recording:
                 self._recording.add_event(event)
@@ -112,13 +112,13 @@ class MouseRecorder:
                     self.on_event_recorded(event)
 
     def _on_move(self, x: int, y: int):
-        """Callback khi chuột di chuyển."""
+        """Callback when mouse moves."""
         if not self._is_recording:
             return
 
         current_time = self._get_relative_time()
 
-        # Sampling: bỏ qua nếu quá gần event trước
+        # Sampling: skip if too close to previous event
         if current_time - self._last_move_time < self.MIN_MOVE_INTERVAL:
             return
 
@@ -133,7 +133,7 @@ class MouseRecorder:
         self._add_event(event)
 
     def _on_click(self, x: int, y: int, button, pressed: bool):
-        """Callback khi click chuột."""
+        """Callback when mouse is clicked."""
         if not self._is_recording:
             return
 
@@ -148,7 +148,7 @@ class MouseRecorder:
         self._add_event(event)
 
     def _on_scroll(self, x: int, y: int, dx: int, dy: int):
-        """Callback khi cuộn chuột."""
+        """Callback when mouse is scrolled."""
         if not self._is_recording:
             return
 
